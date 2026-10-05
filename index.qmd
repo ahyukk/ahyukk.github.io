@@ -28,7 +28,7 @@ Hello, my name is Jaehyuk, but everyone calls me Jay. I am currently a second-ye
 
 My research interests fall into two strands: **nonparametric causal inference** and **uncertainty quantification for iterative algorithms**.
 
-Before coming to Rutgers, I finished my Master's at Seoul National University, where I had the privilege of working under Professor Kwonsang Lee.
+Before coming to Rutgers, I finished my Master's at Seoul National University, where I had the privilege of working under Professor [Kwonsang Lee](https://causal.snu.ac.kr/).
 
 ## Contact
 

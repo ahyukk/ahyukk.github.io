@@ -1,0 +1,37 @@
+/* Small tweaks on top of the cosmo theme */
+body {
+  font-size: 1.02rem;
+}
+
+/* CV page: tighter, Bellec-style section headings */
+h3 {
+  margin-top: 1.8rem;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0.25rem;
+}
+
+.about-entity .about-link {
+  margin-bottom: 0.4rem;
+}
+
+/* Publications page */
+.pub {
+  margin-bottom: 1.6rem;
+}
+.pub .btn {
+  margin-right: 0.3rem;
+}
+.pub details {
+  margin-top: 0.6rem;
+}
+.pub summary {
+  cursor: pointer;
+  color: var(--bs-primary);
+}
+.pub details p {
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+}
+.pub p:first-child a {
+  font-weight: 600;
+}

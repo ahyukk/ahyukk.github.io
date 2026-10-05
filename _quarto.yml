@@ -1,0 +1,35 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Jaehyuk (Jay) Jang"
+  site-url: "https://YOUR-GITHUB-USERNAME.github.io"
+  description: "PhD student in Statistics at Rutgers University"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: publications.qmd
+        text: Publications
+      - href: cv.qmd
+        text: CV
+      - href: posts.qmd
+        text: Blog
+    right:
+      - icon: envelope
+        href: "mailto:jj1188@stat.rutgers.edu"
+        aria-label: Email
+      # Uncomment once you add your GitHub username:
+      # - icon: github
+      #   href: "https://github.com/YOUR-GITHUB-USERNAME"
+      #   aria-label: GitHub
+  page-footer:
+    center: "Copyright 2026, Jaehyuk (Jay) Jang"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    smooth-scroll: true

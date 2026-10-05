@@ -1,0 +1,68 @@
+---
+title: "Curriculum Vitae"
+toc: true
+toc-title: "On this page"
+toc-location: left
+---
+
+**Jaehyuk (Jay) Jang**\
+<jj1188@stat.rutgers.edu>\
+PhD student, Department of Statistics, Rutgers University.
+
+[<i class="bi bi-file-earmark-pdf"></i> Download CV (PDF)](files/Jang_Jaehyuk_CV.pdf){.btn .btn-outline-primary .btn-sm}
+
+### Education
+
+2025–present: PhD in Statistics, Rutgers University, advised by [Matteo Bonvini](https://www.matteobonvini.com/) and [Pierre Bellec](https://bellecp.github.io/).\
+2025: MS in Statistics, Seoul National University, South Korea, advised by Kwonsang Lee.\
+2023: BS in Statistics and Actuarial Science, Soongsil University, South Korea. (Leave for mandatory military service, 2018–2020.)
+
+### Publications
+
+[Mixing Samples to Address Weak Overlap in Causal Inference](https://arxiv.org/abs/2411.10801), Jaehyuk Jang\*, Suehyun Kim\* and Kwonsang Lee. *arXiv:2411.10801*, 2025. Submitted. (\* equal contribution)
+
+### Talks
+
+- "Mixing Samples to Address Weak Overlap in Causal Inference." Euro Causal Inference Meeting (EuroCIM), Ghent, Belgium. April 2025.
+- "Mixing Samples to Address Weak Overlap in Causal Inference." Korean Causal Inference Symposium, Gyeonggi, South Korea. July 2024.
+
+### Awards and Honors
+
+- Penn Causal Inference Summer Institute Scholarship, Philadelphia, PA. 2026.
+- Scholarship for Academic Excellence, Soongsil University. 2017.
+
+### Research experience
+
+- Graduate Research Assistant, Causal Inference Laboratory, Seoul National University (advisor: Kwonsang Lee). March–June 2025. Causal effect of firefighting facility installation on housing fire mortality, in collaboration with the National Fire Agency of South Korea.
+
+### Teaching
+
+- Teaching Assistant, *Statistical Learning*, Rutgers University. Spring 2026.
+- Teaching Assistant, *Statistics for Business*, Rutgers University. Fall 2025.
+- Instructor, *Mathematics for Machine Learning*, Hyundai Korea Shipbuilding & Offshore Engineering. Summer 2025.
+- Instructor, *Experiment in Statistics with R*, Seoul National University. Spring 2024.
+- Teaching Assistant, *Experiment in Statistics with R*, Seoul National University. Fall 2023.
+
+### Service
+
+- Reviewer for *Proceedings of the National Academy of Sciences* (PNAS).
+
+### Professional experience
+
+- Statistical Consultant, Seoul National University. July 2023 – December 2024.
+  - Treatment effect of pain neuroscience education on jaw pain (Korea University, College of Health Science).
+  - Influence of VR games on exhibition features (Shingu University, Department of Digital Media).
+- Freelance Software Engineer, Seoul. February 2020 – December 2022. 30+ projects in statistical analysis and software development (R, Python, MySQL).
+
+### Skills
+
+Programming: R, Python, MySQL\
+Languages: Korean (native), English (fluent)
+
+### Contact
+
+<jj1188@stat.rutgers.edu>\
+Department of Statistics\
+Rutgers University\
+Room 552, 110 Frelinghuysen Road\
+Piscataway, NJ 08854

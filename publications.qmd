@@ -1,0 +1,29 @@
+---
+title: "Publications"
+toc: false
+---
+
+\* denotes equal contribution.
+
+## Preprints
+
+::: {.pub}
+**[Mixing Samples to Address Weak Overlap in Causal Inference](https://arxiv.org/abs/2411.10801)**\
+**Jaehyuk Jang**\*, Suehyun Kim\* and Kwonsang Lee\
+*arXiv:2411.10801*, 2025. Submitted.
+
+[<i class="bi bi-journal-text"></i> arXiv](https://arxiv.org/abs/2411.10801){.btn .btn-outline-primary .btn-sm}
+[<i class="bi bi-file-earmark-pdf"></i> PDF](https://arxiv.org/pdf/2411.10801){.btn .btn-outline-primary .btn-sm}
+
+<details>
+<summary>Abstract</summary>
+
+In observational studies, the assumption of sufficient overlap (positivity) is fundamental for the identification and estimation of causal effects. Failing to account for this assumption yields inaccurate and potentially infeasible estimators. To address this issue, we introduce a simple yet novel approach, mixing, which mitigates overlap violations by constructing a synthetic treated group that combines treated and control units. Our strategy offers three key advantages. First, it improves the accuracy of the estimator by preserving unbiasedness while reducing variance. The benefit is particularly significant in settings with weak overlap, though the method remains effective regardless of the overlap level. This phenomenon results from the shrinkage of propensity scores in the mixed sample, which enhances robustness to poor overlap. Second, it enables direct estimation of the target estimand without discarding extreme observations or modifying the target population, thus facilitating a straightforward interpretation of the results. Third, the mixing approach is highly adaptable to various weighting schemes, including contemporary methods such as entropy balancing. The estimation of the Mixed IPW (MIPW) estimator is done via M-estimation, and the method extends to a broader class of weighting estimators through a resampling algorithm. We illustrate the mixing approach through extensive simulation studies and provide practical guidance with a real-data analysis.
+
+</details>
+:::
+
+<!--
+To add a paper, copy the ::: {.pub} ... ::: block above and edit it.
+Once a paper is accepted, you can add a "## Journal articles" section above "## Preprints".
+-->

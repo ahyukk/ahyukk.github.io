@@ -1,0 +1,14 @@
+---
+title: "Blog"
+toc: false
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  fields: [date, title, description, categories, reading-time]
+---
+
+Personal notes on statistics, research and life.

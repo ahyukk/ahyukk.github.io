@@ -1,0 +1,24 @@
+---
+title: "Hello, world"
+description: "A first post, and a template for future notes."
+date: 2026-10-05
+categories: [notes]
+---
+
+This is a sample post. Replace it with your own writing, or copy this folder to start a new post.
+
+## Writing math
+
+Quarto renders LaTeX, so research notes work well here. For example, the average treatment effect is
+
+$$
+\tau = \mathbb{E}[Y(1) - Y(0)].
+$$
+
+## Writing code
+
+```r
+set.seed(1)
+x <- rnorm(100)
+mean(x)
+```

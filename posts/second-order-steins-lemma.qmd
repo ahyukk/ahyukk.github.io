@@ -1,0 +1,178 @@
+---
+title: "Second-order Stein's Lemma"
+description: "A personal note of Second-order Stein's Lemma for applications to high-dimensional statistics."
+date: 2026-10-12
+categories: [probability]
+---
+
+## Introduction: a centered Gaussian quantity
+
+Let $X\sim N_d(0,I_d)$ and let $g:\mathbb{R}^d\to\mathbb{R}^d$ be weakly differentiable. Write $\partial_i=\partial/\partial x_i$ and use the Jacobian convention
+
+$$
+(\nabla g)_{ij}=\partial_j g_i,
+\qquad
+\operatorname{div}g=\sum_{i=1}^d\partial_i g_i.
+$$
+
+Throughout, assume Gaussian square integrability:
+
+$$
+\mathbb{E}\!\left[\|g(X)\|_2^2+\|\nabla g(X)\|_F^2\right]<\infty.
+$$
+
+First-order Stein's lemma is Gaussian integration by parts, applied to each scalar component $g_j$:
+
+$$
+\mathbb{E}[X_i g_j(X)]
+=\mathbb{E}[\partial_i g_j(X)],
+\qquad 1\leq i,j\leq d.
+$$
+
+Taking $i=j$ and summing the diagonal entries gives
+
+$$
+\mathbb{E}[X^\top g(X)]
+=\sum_{i=1}^d\mathbb{E}[X_i g_i(X)]
+=\sum_{i=1}^d\mathbb{E}[\partial_i g_i(X)]
+=\mathbb{E}[\operatorname{div}g(X)].
+$$
+
+Thus the random variable
+
+$$
+\varepsilon(X)=X^\top g(X)-\operatorname{div}g(X)
+$$
+
+has $\mathbb{E}[\varepsilon(X)]=0$. The next question is how much it fluctuates around zero.
+
+## Statement: its variance is explicit
+
+Under the assumptions above, the second-order Stein identity states[^bellec-zhang]
+
+$$
+\operatorname{Var}(\varepsilon(X))
+=\mathbb{E}\|g(X)\|_2^2
++\mathbb{E}\operatorname{Tr}\!\left[(\nabla g(X))^2\right].
+\tag{1}
+$$
+
+The square inside the trace is **matrix multiplication**:
+
+$$
+\operatorname{Tr}[(\nabla g)^2]
+=\sum_{i=1}^d\sum_{j=1}^d
+(\partial_j g_i)(\partial_i g_j).
+$$
+
+This term can be negative. It equals $\|\nabla g\|_F^2$ when the Jacobian is symmetric.
+
+## Motivation: uncertainty in SURE
+
+Suppose $Y=\mu+X$, with unknown $\mu\in\mathbb{R}^d$, and consider an estimator $\widehat\mu(Y)$ satisfying the corresponding regularity conditions. Stein's unbiased risk estimate is
+
+$$
+\operatorname{SURE}(Y)
+=\|\widehat\mu(Y)-Y\|_2^2
++2\operatorname{div}\widehat\mu(Y)-d.
+$$
+
+First-order Stein gives $\mathbb{E}[\operatorname{SURE}]=\mathbb{E}[L]$, where $L=\|\widehat\mu(Y)-\mu\|_2^2$ is the realized squared loss. Second-order Stein addresses the accuracy of SURE itself. In fact, setting
+
+$$
+h_\mu(x)=x+2\{\widehat\mu(\mu+x)-(\mu+x)\}
+$$
+
+gives $L-\operatorname{SURE}=X^\top h_\mu(X)-\operatorname{div}h_\mu(X)$. Applying (1) to $h_\mu$ computes $\mathbb{E}[(\operatorname{SURE}-L)^2]$ exactly; no limit in $d$ is required.
+
+## Derivation
+
+### 1. Insert a scalar test function
+
+Let $f:\mathbb{R}^d\to\mathbb{R}$ be weakly differentiable with $\mathbb{E}[f(X)^2+\|\nabla f(X)\|_2^2]<\infty$. Applying first-order Stein to each product $f g_i$, then using the product rule, yields
+
+$$
+\begin{aligned}
+\mathbb{E}[f(X)\varepsilon(X)]
+&=\sum_{i=1}^d
+\left\{\mathbb{E}[X_i f(X)g_i(X)]
+-\mathbb{E}[f(X)\partial_i g_i(X)]\right\}\\
+&=\sum_{i=1}^d
+\mathbb{E}\!\left[\partial_i(fg_i)(X)-f(X)\partial_i g_i(X)\right]\\
+&=\sum_{i=1}^d\mathbb{E}[g_i(X)\partial_i f(X)]\\
+&=\mathbb{E}[g(X)^\top\nabla f(X)].
+\end{aligned}
+\tag{3}
+$$
+
+The derivative of $g_i$ cancels with the divergence correction. This identity turns multiplication by $\varepsilon$ into differentiation of the test function.
+
+### 2. Choose the test function $f=\varepsilon$
+
+For this calculation, first assume $g$ is smooth and its derivatives have at most polynomial growth. This justifies differentiating $\varepsilon$; we remove the extra smoothness below. All functions in the following displays are evaluated at $X$.
+
+For each $i$,
+
+$$
+\partial_i\varepsilon
+=g_i
++\sum_{j=1}^d X_j\partial_i g_j
+-\sum_{j=1}^d\partial_i\partial_j g_j.
+$$
+
+Substitute this expression into (3):
+
+$$
+\begin{aligned}
+\mathbb{E}[\varepsilon^2]
+&=\sum_{i=1}^d\mathbb{E}[g_i\partial_i\varepsilon]\\
+&=\sum_{i=1}^d\mathbb{E}[g_i^2]
++\sum_{i=1}^d\sum_{j=1}^d
+\mathbb{E}[X_j g_i\partial_i g_j]\\
+&\qquad
+-\sum_{i=1}^d\sum_{j=1}^d
+\mathbb{E}[g_i\partial_i\partial_j g_j].
+\end{aligned}
+\tag{4}
+$$
+
+Apply first-order Stein again, now in coordinate $j$, to the middle term:
+
+$$
+\begin{aligned}
+\mathbb{E}[X_j g_i\partial_i g_j]
+&=\mathbb{E}[\partial_j(g_i\partial_i g_j)]\\
+&=\mathbb{E}[(\partial_j g_i)(\partial_i g_j)]
++\mathbb{E}[g_i\partial_j\partial_i g_j].
+\end{aligned}
+$$
+
+Because mixed partial derivatives commute, the second-derivative terms cancel in (4). Therefore,
+
+$$
+\begin{aligned}
+\mathbb{E}[\varepsilon^2]
+&=\sum_{i=1}^d\mathbb{E}[g_i^2]
++\sum_{i=1}^d\sum_{j=1}^d
+\mathbb{E}[(\partial_j g_i)(\partial_i g_j)]\\
+&=\mathbb{E}\|g(X)\|_2^2
++\mathbb{E}\operatorname{Tr}[(\nabla g(X))^2].
+\end{aligned}
+$$
+
+Since $\mathbb{E}[\varepsilon]=0$, this proves (1).
+
+
+## A quick check
+
+Take $g(x)=x$. Then $\varepsilon(X)=\|X\|_2^2-d$, and
+
+$$
+\operatorname{Var}(\|X\|_2^2-d)
+=\mathbb{E}\|X\|_2^2+\operatorname{Tr}(I_d^2)
+=d+d=2d,
+$$
+
+the familiar variance of a $\chi_d^2$ variable.
+
+[^bellec-zhang]: Bellec, P. C., and Zhang, C.-H. (2021). *Second-order Stein: SURE for SURE and other applications in high-dimensional inference*. **The Annals of Statistics**, 49(4), 1864--1903. [doi:10.1214/20-AOS2005](https://doi.org/10.1214/20-AOS2005). See Theorem 2.1 for the identity and Section 3.1 for SURE. [Open-access preprint](https://arxiv.org/abs/1811.04121).

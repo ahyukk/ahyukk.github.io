@@ -16,9 +16,9 @@ about:
     - icon: mortarboard
       text: Google Scholar
       href: https://scholar.google.com/citations?user=VQDwDeAAAAAJ&hl=en&oi=sra
-    - icon: file-earmark-person
-      text: CV
-      href: cv.qmd
+    # - icon: file-earmark-person
+    #  text: CV
+    #  href: cv.qmd
     # - icon: mortarboard
     #   text: Google Scholar
     #   href: "https://scholar.google.com/citations?user=YOUR-ID"

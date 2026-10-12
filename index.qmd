@@ -10,9 +10,12 @@ about:
     - icon: envelope
       text: Email
       href: "mailto:jj1188@stat.rutgers.edu"
-    - icon: journal-richtext
-      text: Publications
-      href: publications.qmd
+    - icon: linkedin
+      text: Linkedin
+      href: www.linkedin.com/in/jaehyuk-jang-a63240207
+    - icon: mortarboard
+      text: Google Scholar
+      href: https://scholar.google.com/citations?user=VQDwDeAAAAAJ&hl=en&oi=sra
     - icon: file-earmark-person
       text: CV
       href: cv.qmd

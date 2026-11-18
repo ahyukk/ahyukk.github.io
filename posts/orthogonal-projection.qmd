@@ -1,0 +1,216 @@
+---
+title: "Orthogonal Projection from an Orthogonal Basis"
+description: "A personal note on deriving L2 projection coefficients and their operator representation."
+date: 2026-11-07
+categories: [functional-analysis]
+---
+
+## Introduction: approximation in a finite dimensional subspace
+
+Work with real-valued functions in $H=L^2(\mathbb{R}^d,\mu)$, with
+
+$$
+\langle u,v\rangle=\int uv\,d\mu,
+\qquad
+\|u\|_2^2=\langle u,u\rangle.
+$$
+
+Let $L_k\subset H$ have an orthogonal basis $\{b_1,\ldots,b_k\}$. Write $b(x)=(b_1(x),\ldots,b_k(x))^\top$, so every $h\in L_k$ has a unique representation $h=\beta^\top b$.
+
+For $g\in H$, its orthogonal projection onto $L_k$ is
+
+$$
+\Pi g=\operatorname*{argmin}_{h\in L_k}\|g-h\|_2^2.
+$$
+
+Because $L_k$ is finite-dimensional, it is closed. The Hilbert-space projection theorem therefore guarantees a unique minimizer.[^projection] The goal is to compute it from the basis functions.
+
+## Statement: the projection coefficients are explicit
+
+For every $g\in H$,
+
+$$
+(\Pi g)(x)
+=\sum_{i=1}^k
+\frac{\langle g,b_i\rangle}{\|b_i\|_2^2}\,b_i(x).
+\tag{1}
+$$
+
+This equality is understood $\mu$-almost everywhere. Orthogonality does not require unit norms: the denominators disappear only when the basis is **orthonormal**.
+
+## Motivation: a function approximation becomes least squares
+
+A choice of $k$ basis functions reduces approximation in $L^2$ to optimization over $k$ real coefficients. Orthogonality makes the quadratic term diagonal, so each coefficient can be solved separately. This is the same geometry that underlies ordinary least squares.
+
+## Derivation
+
+### 1. Expand the objective in basis coordinates
+
+Define
+
+$$
+\Omega=\operatorname{diag}
+\bigl(\|b_1\|_2^2,\ldots,\|b_k\|_2^2\bigr),
+\qquad
+c=\int b(x)g(x)\,d\mu(x).
+$$
+
+Since $\langle b_i,b_j\rangle=0$ whenever $i\ne j$,
+
+$$
+\begin{aligned}
+J(\beta)
+&=\int\{g(x)-\beta^\top b(x)\}^2\,d\mu(x)\\
+&=\|g\|_2^2
+-2\sum_{i=1}^k\beta_i\langle g,b_i\rangle
++\sum_{i=1}^k\beta_i^2\|b_i\|_2^2\\
+&=\|g\|_2^2-2\beta^\top c+\beta^\top\Omega\beta.
+\end{aligned}
+$$
+
+### 2. Find the unique minimizer
+
+Differentiating with respect to the coefficient vector gives
+
+$$
+\nabla J(\beta)=2(\Omega\beta-c),
+\qquad
+\nabla^2J(\beta)=2\Omega.
+$$
+
+Every basis function is nonzero, so $\Omega$ is positive definite. Thus $J$ is **strongly convex**, and solving $\nabla J(\beta)=0$ gives
+
+$$
+\widehat\beta=\Omega^{-1}c,
+\qquad
+\widehat\beta_i
+=\frac{\langle g,b_i\rangle}{\|b_i\|_2^2}.
+
+\tag{2}
+$$
+
+Completing the square also proves uniqueness directly:
+
+$$
+J(\beta)-J(\widehat\beta)
+=(\beta-\widehat\beta)^\top
+\Omega(\beta-\widehat\beta)
+=\sum_{i=1}^k\|b_i\|_2^2
+(\beta_i-\widehat\beta_i)^2.
+$$
+
+This difference is strictly positive whenever $\beta\ne\widehat\beta$. Substituting (2) into $\Pi g=\widehat\beta^\top b$ proves (1).
+
+The residual is orthogonal to every basis function:
+
+$$
+\langle g-\Pi g,b_i\rangle
+=\langle g,b_i\rangle-\widehat\beta_i\|b_i\|_2^2
+=0.
+$$
+
+Consequently, adding and subtracting $\Pi g$ gives, for any $h\in L_k$,
+
+$$
+\|g-h\|_2^2
+=\|(g-\Pi g)+(\Pi g-h)\|_2^2
+=\|g-\Pi g\|_2^2+\|\Pi g-h\|_2^2.
+$$
+
+The cross term vanishes because $\Pi g-h\in L_k$.
+
+### 3. Write the projection as an operator
+
+Define the synthesis operator and its adjoint by
+
+$$
+B:\mathbb{R}^k\to H,
+\qquad B\beta=\beta^\top b,
+\qquad
+B^*g=
+\begin{pmatrix}
+\langle g,b_1\rangle\\
+\vdots\\
+\langle g,b_k\rangle
+\end{pmatrix}.
+$$
+
+Orthogonality gives $B^*B=\Omega$. Since $c=B^*g$, equation (2) becomes
+
+$$
+\boxed{\Pi=B\Omega^{-1}B^*.}
+\tag{3}
+$$
+
+Here $B^*$ takes inner products with the basis functions. With $b(x)$ written as a column vector, the explicit formula is
+
+$$
+(\Pi g)(x)
+=b(x)^\top\Omega^{-1}
+\int b(y)g(y)\,d\mu(y).
+$$
+
+The integral is the operation represented by the adjoint; it cannot be replaced by pointwise multiplication.
+
+### 4. Relate the calculation to Fourier coefficients
+
+You can derive the same conclusion using orthonormal basis $\{\theta_j\}_{j\geq 1}$ of $L_2(\mathcal{X})$. If $H$ has a complete orthonormal basis $\{\theta_j\}_{j\ge1}$, define
+
+$$
+\widehat g_j=\langle g,\theta_j\rangle,
+\qquad
+\widehat b_{ij}=\langle b_i,\theta_j\rangle.
+$$
+
+and
+
+$$
+r_\beta = g - \sum^k_{i=1} \beta_i b_i
+$$
+
+Then, Parseval's identity gives the equivalent objective[^parseval]
+
+$$
+J(\beta) = \|r_\beta\|^2_2 \stackrel{*}{=} \sum^\infty_{j=1}|\langle r_\beta, \theta_j\rangle|^2
+=\sum_{j=1}^\infty
+\left(\widehat g_j-\sum_{i=1}^k
+\beta_i\widehat b_{ij}\right)^2.
+$$
+
+The minimizer of the RHS of the equality induces the same $\hat\beta_i$. The sequence $\widehat g=(\widehat g_j)_{j\ge1}$ consists of generalized Fourier coefficients; it is not a function to add to $g$. This change of coordinates is optional.
+
+## A quick check
+
+Take $d=1$, $d\mu(x)=\mathbf{1}_{[-1,1]}(x)\,dx$, and $L_2=\operatorname{span}\{1,x\}$. These two basis functions are orthogonal but not normalized. For $g(x)=x^2+x$,
+
+$$
+\Omega=
+\begin{pmatrix}
+2&0\\
+0&2/3
+\end{pmatrix},
+\qquad
+c=
+\begin{pmatrix}
+2/3\\
+2/3
+\end{pmatrix},
+\qquad
+\widehat\beta=
+\begin{pmatrix}
+1/3\\
+1
+\end{pmatrix}.
+$$
+
+Hence $(\Pi g)(x)=x+1/3$. The residual $x^2-1/3$ is orthogonal to both basis functions:
+
+$$
+\int_{-1}^1(x^2-1/3)\,dx=0,
+\qquad
+\int_{-1}^1x(x^2-1/3)\,dx=0.
+$$
+
+[^projection]: Axler, S. (2020). *Measure, Integration & Real Analysis*. Springer. Section 8B, results 8.28 and 8.37, establish existence, uniqueness, and the orthogonality characterization. [Open-access text](https://measure.axler.net/MIRA.pdf#page=241).
+
+[^parseval]: Axler, *Measure, Integration & Real Analysis*, Section 8C, result 8.63 (Parseval's identity). [Open-access text](https://measure.axler.net/MIRA.pdf#page=259).

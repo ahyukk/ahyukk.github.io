@@ -1,5 +1,5 @@
 ---
-title: "Jaehyuk (Jay) Jang"
+title: "Jay Jang"
 image: profile.jpg
 toc: false
 about:

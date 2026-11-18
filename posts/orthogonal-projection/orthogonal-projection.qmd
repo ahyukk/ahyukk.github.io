@@ -84,8 +84,7 @@ $$
 \widehat\beta=\Omega^{-1}c,
 \qquad
 \widehat\beta_i
-=\frac{\langle g,b_i\rangle}{\|b_i\|_2^2}.
-
+=\frac{\langle g,b_i\rangle}{\|b_i\|_2^2}
 \tag{2}
 $$
 
@@ -138,7 +137,7 @@ $$
 Orthogonality gives $B^*B=\Omega$. Since $c=B^*g$, equation (2) becomes
 
 $$
-\boxed{\Pi=B\Omega^{-1}B^*.}
+\Pi=B\Omega^{-1}B^*
 \tag{3}
 $$
 

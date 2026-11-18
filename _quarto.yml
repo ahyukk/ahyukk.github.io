@@ -25,7 +25,7 @@ website:
       #   href: "https://github.com/YOUR-GITHUB-USERNAME"
       #   aria-label: GitHub
   page-footer:
-    center: "Copyright 2026, Jaehyuk (Jay) Jang"
+    center: "Copyright 2026, Jay Jang"
 
 format:
   html:

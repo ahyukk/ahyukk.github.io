@@ -3,7 +3,7 @@ project:
   output-dir: _site
 
 website:
-  title: "Jaehyuk (Jay) Jang"
+  title: "Jay Jang"
   site-url: "https://ahyukk.github.io"
   description: "PhD student in Statistics at Rutgers University"
   navbar:

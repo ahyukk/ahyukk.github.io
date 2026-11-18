@@ -5,7 +5,7 @@ toc-title: "On this page"
 toc-location: left
 ---
 
-**Jaehyuk (Jay) Jang**\
+**Jay Jang**\
 <jj1188@stat.rutgers.edu>\
 PhD student, Department of Statistics, Rutgers University.
 

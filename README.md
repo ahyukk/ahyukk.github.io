@@ -1,4 +1,4 @@
-# Jaehyuk (Jay) Jang — personal website
+# Jay Jang — personal website
 
 Built with [Quarto](https://quarto.org) and published with GitHub Pages.
 
